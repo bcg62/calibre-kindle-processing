@@ -10,19 +10,19 @@ Note: as per the Calibre docs, polishing only works for AZW3 or EPUB formats.
 /etc/defaults/calibre or environment variables
 
 `DOWNLOADS`
-Location of newly downloaed ebooks
+Location of newly downloaed ebooks.
 `LIBRARY`
-Path to calibre library
+Path to calibre library.
 `CALIBRE_PATH`
-Path to calibre installation
+Path to calibre installation.
 `CACHE_FILE`
-Cache file that prevents re-polishing every book on each run
+Cache file that prevents re-polishing every book on each run.
 `CONVERT_FORMATS`
-Valid formats to convert
+Valid formats to convert.
 `OUTPUT_FORMAT`
-Desired ebook output format extension
+Desired ebook output format extension.
 `PROFILE`
-Device profile: 'kindle_pw' for kindle paperwhite
+Device profile: 'kindle_pw' for kindle paperwhite.
 
 ## Example usage
 
