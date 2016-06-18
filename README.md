@@ -31,7 +31,7 @@ Device profile: 'kindle_pw' for kindle paperwhite.
 Install this script as a cron which moniors DOWNLOADS and takes action when new books arrive
 
 ```
-*/10 * * * * /usr/local/bin/updatecalibre.sh &>> /tmp/update.log
+*/10 * * * * /usr/local/bin/updatecalibre.sh >> /tmp/update.log 2>&1
 ```
 
 The calibre mobile web GUI works well enough on kindle devices to directly download your freshly formated and polished azw3 ebooks.
