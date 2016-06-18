@@ -24,7 +24,7 @@ for ext in $CONVERT_FORMATS; do
       continue
     }
 
-    $CALIBRE_PATH/ebook-convert "${file}" "${output}" --output-PROFILE $PROFILE;
+    $CALIBRE_PATH/ebook-convert "${file}" "${output}" --output-profile $PROFILE;
 
   done <<<"$(find "$DOWNLOADS" -type f -name "*.$ext")"
 
