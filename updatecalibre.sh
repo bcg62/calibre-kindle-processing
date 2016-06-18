@@ -34,10 +34,10 @@ done
 $(ls -1qA ${DOWNLOADS} | grep -q .) &&
 {
   echo "updating calibredb"
-  $CALIBRE_PATH/calibredb add --with-LIBRARY=${LIBRARY} ${DOWNLOADS}
+  $CALIBRE_PATH/calibredb add --with-library=${LIBRARY} ${DOWNLOADS}
 
   echo "embedding metadata"
-  $CALIBRE_PATH/calibredb embed_metadata all --with-LIBRARY=${LIBRARY}
+  $CALIBRE_PATH/calibredb embed_metadata all --with-library=${LIBRARY}
 
   echo "polishing $OUTPUT_FORMAT books"
   while read -r file; do
