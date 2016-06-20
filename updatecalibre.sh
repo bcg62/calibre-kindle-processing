@@ -69,11 +69,19 @@ $(ls -1qA ${DOWNLOADS} | grep -q .) &&
         sed -n 's/^Author(s)[[:blank:]]*: \(.*\).*/\1/p'
       )
 
+     isbn=$(
+       "$CALIBRE_PATH"/calibredb \
+        show_metadata $calibre_id \
+        --with-library=/media/Books |
+        sed -n 's/.*isbn:\([0-9]*\).*/\1/p'
+     )
+
       echo "fetching new metadata and cover for ${title}"
       metadata=$(
         "$CALIBRE_PATH"/fetch-ebook-metadata \
         --title="$title" \
         --authors="$authors" \
+        --isbn="$isbn" \
         --cover "${file%/*}/cover.jpg" \
         --opf
       )
