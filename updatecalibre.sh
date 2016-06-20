@@ -40,6 +40,9 @@ $(ls -1qA ${DOWNLOADS} | grep -q .) &&
   echo "updating calibredb"
   "$CALIBRE_PATH"/calibredb add --with-library=${LIBRARY} ${DOWNLOADS}
 
+  # let calibre wirte its initial metadata
+  sleep 5
+
   while read -r file; do
 
     # get calibre db id numebr
