@@ -97,6 +97,15 @@ $(ls -1qA ${DOWNLOADS} | grep -q .) &&
 
       echo "$metadata" > "${file%/*}/metadata.opf"
 
+      echo "polishing $OUTPUT_FORMAT for ${title}"
+      $CALIBRE_PATH/ebook-polish \
+      --verbose \
+      --cover "${file%/*}/cover.jpg" \
+      --opf "${file%/*}/metadata.opf" \
+      --jacket \
+      --remove-unused-css \
+      "$file" "$file"
+
       echo "updatding calibredb with new metadata"
       "$CALIBRE_PATH"/calibredb \
       set_metadata $calibre_id \
@@ -107,15 +116,6 @@ $(ls -1qA ${DOWNLOADS} | grep -q .) &&
       "$CALIBRE_PATH"/calibredb \
       embed_metadata $calibre_id \
       --with-library=${LIBRARY} \
-
-      echo "polishing $OUTPUT_FORMAT for ${title}"
-      $CALIBRE_PATH/ebook-polish \
-      --verbose \
-      --cover "${file%/*}/cover.jpg" \
-      --opf "${file%/*}/metadata.opf" \
-      --jacket \
-      --remove-unused-css \
-      "$file" "$file"
 
       [[ $? -eq 0 ]] &&
         echo "$calibre_id" >> "$CACHE_FILE"
